@@ -1,0 +1,58 @@
+.product-card {
+  width: 220px;
+  min-height: 270px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 64% 10% 10% 10%;
+  grid-template-areas:
+    "img img"
+    "title title"
+    "ratting price"
+    "cart buy";
+  border-radius: 10px;
+  gap: 2%;
+}
+.currency-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-img {
+  grid-area: img;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+.product-title {
+  grid-area: title;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-ratting {
+  grid-area: ratting;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 1.3rem;
+}
+.product-price {
+  grid-area: price;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+.product-cart {
+  grid-area: cart;
+  border-radius: 30px;
+  border: 1px solid var(--shadow);
+  height: 90%;
+}
+.product-Buy {
+  height: 90%;
+  grid-area: buy;
+  border-radius: 30px;
+  border: 1px solid var(--shadow);
+  background: var(--btn);
+}

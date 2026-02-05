@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+:root {
+  --bg: #edf5fc;
+  --btn: #23ce6b;
+  --shadow: #b8c5d6;
+  --text-one: #272d2d;
+  --text-two: #a39ba8;
+  --font-one: "Montserrat";
+  --font-two: "Forum";
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+body {
+  background: var(--bg);
+  color: var(--text-one);
+  font-family: var(--font-two);
+}
+ul {
+  list-style: none;
+}
+.home {
+  width: 100vw;
+  min-height: 100vh;
+  font-family: var(--font-two);
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+}

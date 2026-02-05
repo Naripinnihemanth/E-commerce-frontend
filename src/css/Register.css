@@ -1,0 +1,21 @@
+.register-container {
+  width: 100vw;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text-one);
+  font-family: var(--font-two);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+}
+.register-container form {
+  width: clamp(250px, 40vw, 350px);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}

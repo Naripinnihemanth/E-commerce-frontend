@@ -1,0 +1,47 @@
+.loading-product {
+  width: 220px;
+  height: 270px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 70% 10% 10%;
+  grid-template-areas:
+    "img img"
+    "tit tit"
+    "ratt pri";
+  gap: 5%;
+}
+.loading-img {
+  grid-area: img;
+  width: 100%;
+  height: 100%;
+  background: var(--shadow);
+  border-radius: inherit;
+  opacity: 0.7;
+}
+.loading-title {
+  grid-area: tit;
+  width: 100%;
+  height: 100%;
+  background: var(--shadow);
+  opacity: 0.7;
+  border-radius: inherit;
+}
+.loading-ratting {
+  grid-area: ratt;
+  width: 100%;
+  height: 100%;
+  background: var(--shadow);
+  opacity: 0.7;
+  border-radius: inherit;
+}
+.loading-price {
+  grid-area: pri;
+  width: 100%;
+  height: 100%;
+  background: var(--shadow);
+  opacity: 0.7;
+  border-radius: inherit;
+}
