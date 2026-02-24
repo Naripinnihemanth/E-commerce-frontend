@@ -19,3 +19,11 @@
   gap: 20px;
   position: relative;
 }
+.error-message {
+  width: 80%;
+  position: absolute;
+  color: red;
+  bottom: -10px;
+  right: 0px;
+  text-align: right;
+}

@@ -11,6 +11,7 @@
     "cart buy";
   border-radius: 10px;
   gap: 2%;
+  position: relative;
 }
 .currency-icon {
   display: flex;
@@ -22,6 +23,7 @@
   width: 100%;
   height: 100%;
   border-radius: inherit;
+  anchor-name: "pro-img";
 }
 .product-title {
   grid-area: title;
@@ -55,4 +57,24 @@
   border-radius: 30px;
   border: 1px solid var(--shadow);
   background: var(--btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.star {
+  color: rgb(211, 180, 5);
+}
+.trending-logo {
+  margin: 10px;
+  position-anchor: pro-img;
+  position: absolute;
+  top: anchor(top);
+  right: anchor(right);
+  z-index: 5;
+  padding: 3px 15px;
+  border-radius: 10px;
+  font-family: var(--font-two);
+  background: var(--btn);
+  font-size: 0.7rem;
+  color: var(--text-one);
 }

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../api";
 import { FaRegUser, FaLock, FaInfoCircle } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { useNavigate, Link } from "react-router-dom";
 import "../css/Register.css";
+import Message from "../Components/Message";
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -12,6 +13,7 @@ function Register() {
   const [LastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   async function register(e) {
     e.preventDefault();
@@ -30,7 +32,22 @@ function Register() {
         setLoading(false);
       }
     } catch (err) {
-      alert(err);
+      if (err.response.status === 400) {
+        if (err.response.data.email && err.response.data.username) {
+          alert(
+            `email : ${err.response.data.email[0]} , username : ${err.response.data.username[0]}`,
+          );
+        } else {
+          if (err.response.data.email) {
+            alert(err.response.data.email[0]);
+          }
+          if (err.response.data.username) {
+            alert(err.response.data.username[0]);
+          }
+        }
+      } else {
+        console.log(err);
+      }
       setLoading(false);
     }
   }

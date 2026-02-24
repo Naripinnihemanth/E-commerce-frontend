@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--text-one);
+  background: var(--bg);
 }
 .not-found-container img {
   width: clamp(200px, 50vw, 400px);

@@ -7,6 +7,7 @@
 }
 :root {
   --bg: #edf5fc;
+  --glass-effect: #edf5fc86;
   --btn: #23ce6b;
   --shadow: #b8c5d6;
   --text-one: #272d2d;
@@ -36,4 +37,12 @@ ul {
   align-items: center;
   flex-direction: column;
   justify-content: start;
+}
+button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: inherit;
 }

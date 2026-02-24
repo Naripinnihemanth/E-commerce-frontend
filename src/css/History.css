@@ -1,0 +1,20 @@
+.history-container {
+  width: 100%;
+  min-height: 150px;
+  padding: 10px 6%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.history-container h1 {
+  font-family: var(--font-one);
+}
+.card-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  overflow: scroll;
+}
+.card-wrapper::-webkit-scrollbar {
+  display: none;
+}

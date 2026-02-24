@@ -1,0 +1,41 @@
+.history-product-card {
+  min-width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  gap: 2%;
+  position: relative;
+  overflow: hidden;
+}
+.delet-btn {
+  position: absolute;
+  color: red;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+}
+.history-product-img {
+  width: 100%;
+  height: 100%;
+}
+.history-title-container {
+  width: 100%;
+  height: 40%;
+  bottom: 0px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.616));
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 10px;
+}
+.history-product-title {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+}

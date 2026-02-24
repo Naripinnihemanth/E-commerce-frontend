@@ -1,4 +1,4 @@
-.tending-container {
+.recomendations-container {
   width: 100%;
   min-height: 200px;
   font-family: var(--font-two);
@@ -7,24 +7,18 @@
   flex-direction: column;
   gap: 10px;
 }
-.actual-price {
-  color: var(--text-two);
-  text-decoration: line-through;
-  font-size: 1rem;
-}
-.tending-container h1 {
+.recomendations-container h1 {
   font-family: var(--font-one);
-  font-size: clamp(1rem, 5vw, 2rem);
 }
-.tending-container .trending-product-container {
+.recomended-items-container {
   min-width: 100%;
   display: grid;
   grid-template-columns: repeat(auto, auto);
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   grid-auto-flow: column;
   gap: 15px;
   overflow-x: scroll;
 }
-.trending-product-container::-webkit-scrollbar {
+.recomended-items-container::-webkit-scrollbar {
   display: none;
 }

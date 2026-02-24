@@ -1,0 +1,188 @@
+.address-container {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0px 6% 20px 6%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+.address-container .header {
+  width: 100vw;
+  min-height: 50px;
+  background-color: var(--btn);
+  padding: 10px 6%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.address-container .header h1 {
+  font-family: var(--font-one);
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  color: var(--text-one);
+}
+.address-container .header p {
+  color: white;
+}
+.active {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--btn);
+  padding: 5px 20px;
+  border-radius: 10px;
+  color: white;
+}
+.inactive {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(128, 128, 128, 0.678);
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+.saved-address-container {
+  width: 100%;
+  min-height: 20vh;
+}
+.address-card-wrapper {
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.address-default {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 10px;
+  right: 10px;
+  padding: 5px 20px;
+  font-size: 0.8rem;
+  background: var(--glass-effect);
+  border-radius: 10px;
+  font-weight: bold;
+}
+.address-card {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, var(--bg), var(--text-two));
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.address-card h3 {
+  width: 100%;
+  height: auto;
+  font-family: var(--font-one);
+  font-size: 1.4rem;
+  color: var(--text-two);
+}
+.address-card p {
+  width: 100%;
+  height: auto;
+  padding: 0px 10px;
+}
+.address-card p span {
+  font-weight: bold;
+}
+.address-form {
+  width: 100%;
+  min-height: 50vh;
+}
+.form {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-inputs {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px 20px;
+  gap: 10px;
+}
+
+.add-input {
+  width: 100%;
+  min-height: 40px;
+  align-self: self-start;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.add-input input {
+  height: 30px;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 3px solid var(--text-two);
+  color: var(--text-one);
+  font-size: 1rem;
+  padding: 10px 20px;
+  outline: none;
+}
+.add-input input:focus {
+  border-bottom: 3px solid var(--text-one);
+}
+.add-input div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 10px;
+}
+.add-input select {
+  height: 30px;
+  width: 100%;
+  outline: none;
+  border: none;
+  background: none;
+  border-bottom: 3px solid var(--text-two);
+}
+.add-address-btn {
+  height: 40px;
+  width: 30%;
+  background: var(--btn);
+  border: 1px solid;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: var(--text-one);
+}
+.add-input input::placeholder {
+  color: var(--text-two);
+  font-size: 0.8rem;
+}
+.add-input label {
+  font-weight: bold;
+  font-family: var(--font-two);
+}
+.add-input label span {
+  color: red;
+}
+.add-input .success {
+  border-bottom: 3px solid green;
+}
+.add-input .error {
+  border-bottom: 3px solid red;
+}
+@media screen and (max-width: 700px) {
+  .form-inputs {
+    grid-template-columns: 1fr;
+  }
+}

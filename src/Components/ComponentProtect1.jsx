@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constents";
 import api from "../api";
+import { Link } from "react-router-dom";
+import "../css/Navbar.css";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
 
-function Protected({ children }) {
-  const [userStatus, setUserStatus] = useState(null);
-  const naviaget = useNavigate();
+function ComponentProtect1({ children }) {
+  const [userStatus, setUserStatus] = useState(false);
   async function refresh() {
     try {
       const refresh_token = localStorage.getItem(REFRESH_TOKEN);
@@ -15,7 +14,7 @@ function Protected({ children }) {
       const res = await api.post("/api/refresh/", {
         refresh: refresh_token,
       });
-      console.log(res);
+
       if (res.status === 200) {
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         setUserStatus(true);
@@ -24,7 +23,6 @@ function Protected({ children }) {
       }
     } catch (err) {
       console.log(err);
-      naviaget("/logout");
       setUserStatus(false);
     }
   }
@@ -41,7 +39,7 @@ function Protected({ children }) {
     const now = Date.now() / 1000;
 
     if (exp < now) {
-      refresh();
+      await refresh();
     } else {
       setUserStatus(true);
     }
@@ -52,10 +50,7 @@ function Protected({ children }) {
     });
   }, []);
 
-  if (userStatus === null) {
-    return <h1>Loading...</h1>;
-  }
-  return userStatus ? children : naviaget("/login");
+  return userStatus ? children : null;
 }
 
-export default Protected;
+export default ComponentProtect1;
