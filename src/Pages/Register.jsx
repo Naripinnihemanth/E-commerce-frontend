@@ -19,7 +19,7 @@ function Register() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await api.post("/api/register/", {
+      const res = await api.post("/", {
         username: username,
         password: password,
         first_name: firstName,

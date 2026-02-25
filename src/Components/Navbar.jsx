@@ -71,7 +71,7 @@ function Navbar() {
         <button className="side-item">Categories</button>
       </div>
 
-      <h1>E-COMMERCE</h1>
+      <h1>StockStream</h1>
       <div className="category">
         <a href="#recomended" className="category-item">
           Recommended
