@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import api from "../api";
 import { ACCESS_TOKEN } from "../constents";
 import { jwtDecode } from "jwt-decode";
-import "../css/profile.css";
+import "../css/Profile.css";
 import Footer from "../Components/Footer";
 function Profile() {
   const [img, setImg] = useState();
   const [bio, setBio] = useState();
-
 
   async function postData(e) {
     e.preventDefault();
