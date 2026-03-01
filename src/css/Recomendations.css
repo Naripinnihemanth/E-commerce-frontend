@@ -9,6 +9,7 @@
 }
 .recomendations-container h1 {
   font-family: var(--font-one);
+  font-size: clamp(1rem, 5vw, 2rem);
 }
 .recomended-items-container {
   min-width: 100%;

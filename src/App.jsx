@@ -32,9 +32,30 @@ function App() {
         <Route path="/error" element={<Error />}></Route>
         <Route path="/forget" element={<Forget />}></Route>
         <Route path="/details/:id" element={<Details />}></Route>
-        <Route path="/payment/:id" element={<Payments />}></Route>
-        <Route path="/myaddress" element={<Address />}></Route>
-        <Route path="/myorders" element={<MyOrders />}></Route>
+        <Route
+          path="/payment/:id"
+          element={
+            <Protected>
+              <Payments />
+            </Protected>
+          }
+        ></Route>
+        <Route
+          path="/myaddress"
+          element={
+            <Protected>
+              <Address />
+            </Protected>
+          }
+        ></Route>
+        <Route
+          path="/myorders"
+          element={
+            <Protected>
+              <MyOrders />
+            </Protected>
+          }
+        ></Route>
         <Route
           path="/cart"
           element={
