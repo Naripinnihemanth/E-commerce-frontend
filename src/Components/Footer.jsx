@@ -6,7 +6,7 @@ function Footer() {
     <div className="footer-container">
       <div className="content">
         <div className="footer-logo">
-          <h1>StockStream</h1>
+          <h1>TrendX</h1>
           <p>helping you find the right product faster, every time</p>
         </div>
         <div className="categories">
@@ -35,7 +35,7 @@ function Footer() {
       </div>
       <div className="copy-rights">
         <p>
-          <FaRegCopyright /> 2026 StockStream inc. All rights reserved.
+          <FaRegCopyright /> 2026 TrendX inc. All rights reserved.
         </p>
         <div className="list">
           <p>Terms of Servics</p>

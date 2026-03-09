@@ -5,6 +5,7 @@ import { BiRupee } from "react-icons/bi";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../api";
 import Message from "./Message";
+import { FaHeart } from "react-icons/fa";
 function ProductCard({
   id,
   title,
@@ -59,35 +60,52 @@ function ProductCard({
 
   return (
     <>
-      {message != "" ? <Message msg={message}></Message> : null}
+      {message !== "" ? <Message msg={message}></Message> : null}
+
       <div className="product-card">
-        {views > 1000 ? <p className="trending-logo">Best Seller</p> : null}
-        <img
-          src={image}
-          alt="error"
-          width={"100px"}
-          height={"100px"}
-          className="product-img"
-          onClick={() => setHistory()}
-        />
-        <h5 className="product-title">{title}</h5>
-        <div className="product-ratting">
-          <FaStar className="star" />
-          <p>{ratting}</p>
-        </div>
-        <div className="product-price">
-          <p className="actual-price">{price}</p>
-          <p className="currency-icon">
-            {currency === "inr" ? <BiRupee /> : "$"}
-          </p>
-          <p>{Math.floor(price - (descount / 100) * price)}</p>
-        </div>
-        <button className="product-cart" onClick={setCart}>
-          Cart
+        {views > 1000 && <span className="badge">Best Seller</span>}
+        <button className="wishlist">
+          <FaHeart />
         </button>
-        <Link to={`/payment/${id}`} className="product-Buy">
-          Buy
-        </Link>
+        <div className="image-container" onClick={() => setHistory()}>
+          <img src={image} alt={title} />
+        </div>
+
+        <div className="product-info">
+          <h4 className="title">{title}</h4>
+
+          <div className="rating">
+            {[...Array(5)].map((_, index) => (
+              <FaStar
+                key={index}
+                className={index < ratting ? "star filled" : "star"}
+              />
+            ))}
+          </div>
+
+          <div className="price-section">
+            <span className="discount-price">
+              {currency === "inr" ? <BiRupee /> : "$"}
+              {Math.floor(price - (descount / 100) * price)}
+            </span>
+
+            <span className="actual-price">
+              {currency === "inr" ? <BiRupee /> : "$"}
+              {price}
+            </span>
+            <span className="discount-badge">{descount}% OFF</span>
+          </div>
+
+          <div className="buttons">
+            <button className="cart-btn" onClick={setCart}>
+              Add to Cart
+            </button>
+
+            <Link to={`/payment/${id}`} className="buy-btn">
+              Buy Now
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );

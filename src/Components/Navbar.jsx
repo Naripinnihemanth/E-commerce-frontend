@@ -1,56 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "../css/Navbar.css";
-import { FaCartShopping } from "react-icons/fa6";
 import { HiMenu } from "react-icons/hi";
 import ComponentProtect from "./ComponentProtect";
-import { Link } from "react-router-dom";
 import api from "../api";
-import { IoMdLogOut } from "react-icons/io";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import NavProfile from "./NavProfile";
 function Navbar() {
-  const [profilePic, setProfilePic] = useState([
-    {
-      auther: null,
-      bio: "",
-      profile: "https://placehold.co/20",
-    },
-  ]);
-  const [userData, setUserData] = useState({});
-  const [userImg, setUserImg] = useState([]);
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
-
-  async function getProfilePic() {
-    try {
-      setLoading(true);
-      const res_user = await api.get(`/api/getuser/`);
-      const res = await api.get(`/api/getProfile/`);
-      setUserData(res_user.data[0]);
-      setProfilePic(res.data);
-      setLoading(false);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   async function getData() {
     try {
-      setUserImg([]);
-      const res_data = await api.get(`/api/getProfile/`);
-      const res_user = await api.get(`/api/getuser/`);
       const res_categories = await api.get(`/products/getcategory/`);
       console.log(res_categories);
       setCategories(res_categories.data);
-      setUserData(res_user.data[0]);
-      setUserImg(res_data.data);
     } catch (err) {
       console.log(err);
     }
   }
   useEffect(() => {
     getData();
-    getProfilePic();
   }, []);
 
   return (
@@ -71,7 +38,7 @@ function Navbar() {
         <button className="side-item">Categories</button>
       </div>
 
-      <h1>StockStream</h1>
+      <h1>TrendX</h1>
       <div className="category">
         <a href="#recomended" className="category-item">
           Recommended
