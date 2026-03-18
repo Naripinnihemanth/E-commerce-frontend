@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "../css/CategoryProducts.css";
 import { useParams } from "react-router-dom";
 import api from "../api";
-import NavBar from "../Components/NavBar";
+import Navbar from "../../Components/Navbar";
 import ProductCard from "../Components/ProductCard";
 function CategoryProducts() {
   const param = useParams();
@@ -72,7 +72,7 @@ function CategoryProducts() {
 
   return (
     <div className="category-products">
-      <NavBar></NavBar>
+      <Navbar></Navbar>
       <div className="filters">
         <select name="price" id="price" onChange={handlePriceChange}>
           <option value="price">price</option>
