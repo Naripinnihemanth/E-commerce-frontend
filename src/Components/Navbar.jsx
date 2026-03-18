@@ -4,9 +4,12 @@ import { HiMenu } from "react-icons/hi";
 import ComponentProtect from "./ComponentProtect";
 import api from "../api";
 import NavProfile from "./NavProfile";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Navbar() {
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
   async function getData() {
     try {
       const res_categories = await api.get(`/products/getcategory/`);
@@ -15,6 +18,9 @@ function Navbar() {
     } catch (err) {
       console.log(err);
     }
+  }
+  function categoryNavigate(id) {
+    navigate(`/category/${id}`);
   }
   useEffect(() => {
     getData();
@@ -35,7 +41,17 @@ function Navbar() {
         <a href="#history" className="side-item">
           History
         </a>
-        <button className="side-item">Categories</button>
+        <select className="side-item category-slide" onChange={(e)=>categoryNavigate(e.target.value)}>
+          <option>Categories</option>
+          {categories.map((item) => (
+            <option
+              key={item.id}
+              value={item.id}
+            >
+              {item.title}
+            </option>
+          ))}
+        </select>
       </div>
 
       <h1>TrendX</h1>
@@ -55,7 +71,9 @@ function Navbar() {
       </div>
       <div className="categoriess" popover="auto" id="cat">
         {categories.map((item) => (
-          <p key={item.id}>{item.title}</p>
+          <Link key={item.id} to={`/category/${item.id}`}>
+            {item.title}
+          </Link>
         ))}
       </div>
       <ComponentProtect>

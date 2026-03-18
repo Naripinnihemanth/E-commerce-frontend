@@ -188,7 +188,7 @@ function Payments() {
             ) : (
               userAddress.map((item) => (
                 <div key={item.id} className="address-card">
-                  <Link to={"/myaddress"} className="active">
+                  <Link to={"/myaddress"} className="change-address">
                     Change
                   </Link>
 
@@ -227,10 +227,12 @@ function Payments() {
                 <p>{product.description}</p>
                 <p className="payment-product-color">{product.color}</p>
                 <p className="payment-product-ratting">
-                  {[...Array(5)].map((item, i) => (
+                  {[...Array(5)].map((_, index) => (
                     <FaStar
-                      className={product.ratting > i ? "span" : ""}
-                      key={i}
+                      key={index}
+                      className={
+                        index < product.ratting ? "star filled" : "star"
+                      }
                     />
                   ))}
                 </p>

@@ -12,6 +12,7 @@ import Cart from "./Pages/Cart";
 import Payments from "./Pages/Payments";
 import Address from "./Pages/Address";
 import MyOrders from "./Pages/MyOrders";
+import CategoryProducts from "./Pages/CategoryProducts";
 function App() {
   function Logout() {
     localStorage.clear();
@@ -32,6 +33,7 @@ function App() {
         <Route path="/error" element={<Error />}></Route>
         <Route path="/forget" element={<Forget />}></Route>
         <Route path="/details/:id" element={<Details />}></Route>
+        <Route path="/category/:id" element={<CategoryProducts />}></Route>
         <Route
           path="/payment/:id"
           element={

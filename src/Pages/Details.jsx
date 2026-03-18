@@ -56,25 +56,17 @@ function Details() {
         <div className="meta-data">
           <h1>{Product.title}</h1>
           <h3>{Product.brand}</h3>
-          <div className="ratting-stars">
-            {[...Array(5)].map((item, i) => (
+          <div className="rating">
+            {[...Array(5)].map((_, index) => (
               <FaStar
-                className={Math.floor(Product.ratting) > i ? "star" : "star-no"}
-                key={i}
+                key={index}
+                className={index < Product.ratting ? "star filled" : "star"}
               />
             ))}
-            <p>({Product.ratting})</p>
           </div>
           <div className="product-color">
             <p>Product color :</p>
-            <div
-              style={{
-                background: Product.color,
-                width: "20px",
-                height: "20px",
-                border: "0.5px solid",
-              }}
-            ></div>
+            <p>{Product.color}</p>
           </div>
           <div className="avilable-stock">
             <p>Avilable stock :</p>
