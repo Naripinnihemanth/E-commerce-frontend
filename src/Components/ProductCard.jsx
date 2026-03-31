@@ -32,7 +32,6 @@ function ProductCard({
       const upd = await api.patch(`/products/viewsincreas/${id}/`, {
         views: views + 1,
       });
-
       if (res.status === 201) {
         navigate(`/details/${id}`);
       }

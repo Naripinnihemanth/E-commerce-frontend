@@ -8,6 +8,7 @@ function CategoryProducts() {
   const param = useParams();
   const [products, setProducts] = React.useState([]);
   const [brands, setBrands] = React.useState([]);
+  const [filteredBrands, setFilteredBrands] = React.useState([]);
   const [priceRange, setPriceRange] = React.useState({
     min: 0,
     max: 99999,
@@ -30,7 +31,7 @@ function CategoryProducts() {
 
     return priceOk && ratingOk && brandOk;
   });
-
+  const unique = [...new Set(brands)];
   async function fetchCategoryProducts() {
     try {
       const response = await api.get(`/products/categoryproducts/${param.id}/`);
@@ -68,6 +69,11 @@ function CategoryProducts() {
       }
     });
   }, [products]);
+
+  // useEffect(() => {
+
+  // }, [brands]);
+
   useEffect(() => {}, [brand, priceRange, ratingRange]);
 
   return (
@@ -75,13 +81,13 @@ function CategoryProducts() {
       <Navbar></Navbar>
       <div className="filters">
         <select name="price" id="price" onChange={handlePriceChange}>
-          <option value="price">price</option>
+          <option value="price">--price--</option>
           <option value="500-1000">500 - 1000</option>
           <option value="1000-2000">1000 - 2000</option>
           <option value="2000-5000">2000 - 5000</option>
         </select>
         <select name="rating" id="rating" onChange={handleRatingChange}>
-          <option value="rating">rating</option>
+          <option value="rating">--rating--</option>
           <option value="3-4">3 - 4</option>
           <option value="4-5">4 - 5</option>
         </select>
@@ -90,8 +96,8 @@ function CategoryProducts() {
           id="brands"
           onChange={(e) => setBrand(e.target.value)}
         >
-          <option value="">brands</option>
-          {brands.map((brand, index) => {
+          <option value="">--brands--</option>
+          {unique.map((brand, index) => {
             return (
               <option key={index} value={brand}>
                 {brand}
