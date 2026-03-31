@@ -148,29 +148,43 @@ function Payments() {
         </div>
       ) : null}
 
-      {Success ? (
-        <div className="success-note">
-          <div className="note">
-            <Link to={"/"}>
-              <IoClose className="close" />
-            </Link>
-            <div className="success-img">
-              <img src="/delivery_boy.png" alt="success" width={"100px"} />
-              <h1>Order successful</h1>
-              <p>your package is on the way</p>
-            </div>
-            <div className="ordered-product">
-              <img src={product.image} alt="" width={"50px"} />
-              <div className="ordered-product-details">
-                <h5>{product.title}</h5>
-                <p>{product.color}</p>
-                <p>Quantity : {quantity}</p>
+      {Success && (
+        <div className="success-overlay">
+          <div className="success-modal">
+            <button className="close-btn" onClick={() => navigate("/")}>
+              <IoClose />
+            </button>
+
+            <div className="success-content">
+              <img
+                src="/delivery_boy.png"
+                alt="success"
+                className="success-img"
+              />
+
+              <h2>Order Confirmed 🎉</h2>
+              <p>Your package is on the way</p>
+
+              <div className="product-card">
+                <img src={product.image} alt="" />
+
+                <div>
+                  <h4>{product.title}</h4>
+                  <p>{product.color}</p>
+                  <span>Qty: {quantity}</span>
+                </div>
               </div>
+
+              <button
+                className="track-btn"
+                onClick={() => navigate("/myorders")}
+              >
+                Track Order
+              </button>
             </div>
-            <button>Track Your order</button>
           </div>
         </div>
-      ) : null}
+      )}
       <Navbar></Navbar>
       <div className="payment-container">
         <div className="left-slide">

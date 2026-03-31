@@ -1,4 +1,4 @@
-.history-product-card {
+/* .history-product-card {
   min-width: 220px;
   height: 220px;
   display: flex;
@@ -38,4 +38,75 @@
   text-align: center;
   font-weight: bold;
   font-size: 1.3rem;
+} */
+
+.history-card {
+  min-width: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.history-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* IMAGE */
+.history-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* ZOOM EFFECT */
+.history-card:hover .history-img {
+  transform: scale(1.08);
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: #fff;
+
+  transform: translateY(100%);
+  transition: 0.3s ease;
+}
+
+/* TEXT SLIDE UP */
+.history-card:hover .overlay {
+  transform: translateY(0);
+}
+
+/* DELETE BUTTON */
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 0, 0, 0.8);
+  border: none;
+  padding: 6px;
+  border-radius: 50%;
+  color: white;
+  opacity: 0;
+
+  transition: 0.3s ease;
+}
+
+/* SHOW DELETE ON HOVER */
+.history-card:hover .delete-btn {
+  opacity: 1;
+}
+
+/* HOVER DEPTH */
+.history-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }

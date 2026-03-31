@@ -341,22 +341,122 @@
   color: var(--bg);
   font-size: clamp(0.6rem, 3vw, 0.8rem);
 }
-.payment-options div button:disabled{
+.payment-options div button:disabled {
   background: rgba(128, 128, 128, 0.616);
 }
 .payment-options div p {
   font-weight: bold;
   font-size: clamp(0.8rem, 2vw, 1rem);
 }
-.change-address{
-  position:absolute;
+.change-address {
+  position: absolute;
   top: 20px;
   right: 20px;
   padding: 7px 15px;
   color: var(--bg);
-  border-radius: 10px;  
+  border-radius: 10px;
   background: var(--btn);
 }
+
+/* BACKDROP */
+.success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* MODAL */
+.success-overlay .success-modal {
+  width: clamp(270px, 40vw, 340px);
+  border-radius: 20px;
+  background: #fff;
+  padding: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  animation: popUp 0.4s ease;
+}
+
+/* ENTRY ANIMATION */
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* CLOSE BUTTON */
+.success-overlay .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* CONTENT */
+.success-overlay .success-content {
+  text-align: center;
+}
+
+.success-overlay .success-img {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+/* PRODUCT CARD */
+.success-overlay .product-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  background: #f7f7f7;
+  padding: 10px;
+  border-radius: 12px;
+  margin: 15px 0;
+}
+
+.success-overlay .product-card img {
+  width: 60px;
+  border-radius: 8px;
+}
+
+/* BUTTON */
+.success-overlay .track-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+
+  background: #16a34a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.success-overlay .track-btn:hover {
+  background: #15803d;
+}
+
 @media screen and (max-width: 900px) {
   .payment-container {
     flex-direction: column;

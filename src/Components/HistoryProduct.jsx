@@ -41,24 +41,24 @@ function HistoryProduct({
     }
   }
   return (
-    <>
-      <div className="history-product-card">
-        <button onClick={deleteHistory} className="delet-btn">
-          <MdDelete />
-        </button>
+    <div className="history-card">
+      <div className="history-img-wrapper">
         <img
           src={image}
-          alt="error"
-          width={"100px"}
-          height={"100px"}
-          className="history-product-img"
-          onClick={() => setHistory()}
+          alt={title}
+          className="history-img"
+          onClick={setHistory}
         />
-        <div className="history-title-container">
-          <h5 className="history-product-title">{title}</h5>
+
+        <div className="overlay">
+          <h5>{title}</h5>
         </div>
+
+        <button className="delete-btn" onClick={deleteHistory}>
+          <MdDelete />
+        </button>
       </div>
-    </>
+    </div>
   );
 }
 

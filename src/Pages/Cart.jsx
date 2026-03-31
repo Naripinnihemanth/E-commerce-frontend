@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../css/Cart.css";
 import api from "../api";
 import Navbar from "../Components/Navbar";
-import { BiRupee } from "react-icons/bi";
-import { Link, useSearchParams } from "react-router-dom";
-import { FaMinus } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 import { MdDelete } from "react-icons/md";
 import CartQuantity from "../Components/CartQuantity";
@@ -40,7 +38,6 @@ function Cart() {
     try {
       const res = await api.get("/products/getcart/");
       console.log(res);
-
       setCart(res.data);
     } catch (err) {
       console.log(err);
@@ -65,67 +62,81 @@ function Cart() {
   }, [totel]);
   return (
     <div className="cart-page">
-      <Navbar></Navbar>
-      <h1 className="cart-h1">Shopping cart</h1>
-      {cart.length == 0 ? (
-        <h1 className="empty-cart">Cart is Empty </h1>
-      ) : (
-        <div className="cart-container">
-          <div className="items-container">
-            {cart
-              ? cart.map((item) => (
-                  <div className="cart-item-card" key={item.id}>
-                    <Link to={`/details/${item.item_id}`}>
-                      <img src={item.item_image} alt="error" width={"100px"} />
-                    </Link>
-                    <div className="title-color">
-                      <h3>{item.item_title}</h3>
-                      <p>{item.item_color}</p>
-                    </div>
-                    <CartQuantity
-                      id={item.id}
-                      price={item.item_price}
-                      getPrice={getTotel}
-                      descount={item.item_descount}
-                    ></CartQuantity>
+      <Navbar />
 
-                    <div
-                      className="item-delet"
-                      onClick={() => deleteItem(item.id)}
-                    >
-                      <MdDelete />
-                    </div>
-                    <Link to={`/payment/${item.id}`} className="cart-buy">
-                      Buy
-                    </Link>
-                  </div>
-                ))
-              : null}
-          </div>
-          {/* <div className="order-summery">
-            <h3>Order Summary</h3>
-            <div className="summery-price">
-              <div className="sub-totel">
-                <p>Sub Totel</p>
-                <p>{totel} INR</p>
+      <h1 className="cart-title">Shopping Cart</h1>
+
+      <div className="cart-layout">
+        {/* LEFT - ITEMS */}
+        <div className="cart-items">
+          {cart.length === 0 ? (
+            <h2 className="empty">Your cart is empty</h2>
+          ) : (
+            cart.map((item) => (
+              <div className="cart-card" key={item.id}>
+                <img src={item.item_image} alt="" />
+
+                <div className="cart-info">
+                  <h3>{item.item_title}</h3>
+                  <p>{item.item_color}</p>
+
+                  {/* <CartQuantity
+                    id={item.id}
+                    price={item.item_price}
+                    getPrice={getTotel}
+                    discount={item.item_descount}
+                  /> */}
+                </div>
+
+                <div className="cart-actions">
+                  <h3>
+                    ₹{" "}
+                    {Math.floor(
+                      item.item_price -
+                        (item.item_descount / 100) * item.item_price,
+                    )}
+                  </h3>
+
+                  <button
+                    className="delete-btn"
+                    onClick={() => deleteItem(item.id)}
+                  >
+                    <MdDelete />
+                  </button>
+
+                  <Link to={`/payment/${item.item_id}`} className="buy-btn">
+                    Checkout
+                  </Link>
+                </div>
               </div>
-              <div className="descount">
-                <p>Descount(10%)</p>
-                <p>{descount} INR</p>
-              </div>
-              <div className="delivery-charge">
-                <p>delivery fee</p>
-                <p>85 INR</p>
-              </div>
-            </div>
-            <div className="grand-totel">
-              <p>Totel</p>
-              <p>{totel - descount + 85}</p>
-            </div>
-            <button className="check-out-btn">Check Out</button>
-          </div> */}
+            ))
+          )}
         </div>
-      )}
+
+        {/* RIGHT - SUMMARY */}
+        <div className="cart-summary">
+          <h2>Order Summary</h2>
+
+          <div className="summary-row">
+            <span>Total</span>
+            <span>₹ {totel}</span>
+          </div>
+
+          <div className="summary-row">
+            <span>Discount</span>
+            <span>- ₹ {descount}</span>
+          </div>
+
+          <hr />
+
+          <div className="summary-row total">
+            <span>Final Amount</span>
+            <span>₹ {totel - descount}</span>
+          </div>
+
+          <button className="checkout-btn">Proceed to Checkout</button>
+        </div>
+      </div>
     </div>
   );
 }

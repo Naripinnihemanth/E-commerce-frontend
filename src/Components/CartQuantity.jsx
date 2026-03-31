@@ -56,7 +56,7 @@ function CartQuantity({ id, price, getPrice, descount }) {
       </div> */}
       <p className="price">
         <BiRupee />
-        {Math.floor(price * itemQ - (descount / 100) * price * itemQ)}
+        {price - descount}
       </p>
     </div>
   );

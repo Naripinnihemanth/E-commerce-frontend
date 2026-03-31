@@ -63,9 +63,9 @@ function ProductCard({
 
       <div className="product-card">
         {views > 1000 && <span className="badge">Best Seller</span>}
-        <button className="wishlist">
+        {/* <button className="wishlist">
           <FaHeart />
-        </button>
+        </button> */}
         <div className="image-container" onClick={() => setHistory()}>
           <img src={image} alt={title} />
         </div>
