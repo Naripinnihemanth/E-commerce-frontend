@@ -9,9 +9,11 @@
   --bg: #edf5fc;
   --glass-effect: #edf5fc86;
   --btn: #23ce6b;
+  --btn-lite: #23ce6a88;
   --shadow: #b8c5d6;
   --text-one: #272d2d;
   --text-two: #a39ba8;
+  --text-two-lite: #a39ba8a6;
   --font-one: "Montserrat";
   --font-two: "Forum";
 }

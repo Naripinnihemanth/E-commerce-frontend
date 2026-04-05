@@ -59,12 +59,12 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   position: relative;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 0px 5px gray;
 }
 .order-header {
   width: 100%;
   height: auto;
-  border-bottom: 3px solid var(--text-two);
+  border-bottom: 2px solid var(--text-two-lite);
   padding: 5px 20px;
   display: flex;
   align-items: center;
@@ -77,7 +77,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 5px 20px;
-  background: rgba(128, 128, 128, 0.37);
+  background: rgba(128, 128, 128, 0.2);
   border-radius: 0px 0px 10px 10px;
 }
 .order-footer p span {
